@@ -26,7 +26,7 @@
           >
           <ul class="nav-list list">
             <li class="nav-list-item">
-              <a class="nav-link" href="index.html">Agencja</a>
+              <a class="nav-link active" href="index.html">Agencja</a>
             </li>
             <li class="nav-list-item">
               <a class="nav-link" href="portfolio.html">Portfolio</a>
@@ -61,7 +61,9 @@
           <h1 class="head-title">
             efektywne rozwiązania<br />dla waszego biznesu
           </h1>
-          <button class="order-button" type="button">Zamów Usługę</button>
+          <button class="order-button" type="button" data-modal-open>
+            Zamów Usługę
+          </button>
         </div>
       </section>
       <section class="section solutions">
@@ -124,31 +126,40 @@
           <h2 class="our-job-header">Czym się zajmujemy</h2>
           <ul class="our-job-list list">
             <li class="our-job-list-item">
-              <img
-                class="our-job-list-img"
-                src="images/our_job1.jpg"
-                alt="Wykonywana praca"
-                width="370"
-                height="294"
-              />
+              <div class="job-description-box">
+                <img
+                  class="our-job-list-img"
+                  src="images/our_job1.jpg"
+                  alt="Wykonywana praca"
+                  width="370"
+                  height="294"
+                />
+                <p class="job-description">aplikacje komputerowe</p>
+              </div>
             </li>
             <li class="our-job-list-item">
-              <img
-                class="our-job-list-img"
-                src="images/our_job2.jpg"
-                alt="Wykonywana praca"
-                width="370"
-                height="294"
-              />
+              <div class="job-description-box">
+                <img
+                  class="our-job-list-img"
+                  src="images/our_job2.jpg"
+                  alt="Wykonywana praca"
+                  width="370"
+                  height="294"
+                />
+                <p class="job-description">aplikacje mobilne</p>
+              </div>
             </li>
             <li class="our-job-list-item">
-              <img
-                class="our-job-list-img"
-                src="images/our_job3.jpg"
-                alt="Wykonywana praca"
-                width="370"
-                height="294"
-              />
+              <div class="job-description-box">
+                <img
+                  class="our-job-list-img"
+                  src="images/our_job3.jpg"
+                  alt="Wykonywana praca"
+                  width="370"
+                  height="294"
+                />
+                <p class="job-description">rozwiązania graficzne</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -402,5 +413,12 @@
         </div>
       </div>
     </footer>
+    <div class="backdrop is-hidden" data-modal>
+      <div class="modal">
+        <button type="button" class="close-btn" data-modal-close>x</button>
+      </div>
+    </div>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>

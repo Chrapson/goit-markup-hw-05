@@ -81,11 +81,28 @@ ul {
   letter-spacing: 0.02em;
   text-decoration: none;
   color: var(--text-color);
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .nav-list-item:nth-child(2) {
   margin-right: 46px;
   margin-left: 46px;
 }
+.active {
+  color: var(--light-blue-color);
+  position: relative;
+}
+.active:after {
+  content: "";
+  position: absolute;
+  border-bottom: 4px solid var(--light-blue-color);
+  border-radius: 2px;
+  display: block;
+  width: 100%;
+  padding-bottom: 28px;
+}
+
 .link-phone-mail {
   font-style: normal;
   font-weight: 500;
@@ -96,6 +113,9 @@ ul {
   text-decoration: none;
   display: flex;
   align-items: center;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-contact-list {
   padding: 32px 0;
@@ -104,6 +124,7 @@ ul {
 
 .nav-link:hover,
 .nav-link:focus,
+.nav-link:active,
 .link-phone-mail:hover,
 .link-phone-mail:focus {
   color: var(--light-blue-color);
@@ -216,6 +237,29 @@ ul {
   color: var(--text-color);
 }
 /* END HEADERS H2 */
+
+.job-description-box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+.job-description-box > .job-description {
+  position: absolute;
+  bottom: 0px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: rgba(47, 48, 58, 0.8);
+  color: var(--white);
+  padding: 27px 0;
+  width: 100%;
+}
 .our-job .container {
   background-color: var(--white);
   display: flex;
@@ -292,10 +336,13 @@ ul {
   cursor: pointer;
   border-radius: 50%;
   fill: #afb1b8;
+  transition-property: background-color, fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .team-icon-element:hover,
 .team-icon-element:focus {
-  background: #2196f3;
+  background-color: var(--light-blue-color);
   fill: #fff;
 }
 
@@ -319,6 +366,9 @@ ul {
   text-decoration: none;
   fill: #afb1b8;
   cursor: pointer;
+  transition-property: border-color, fill;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .clients-icon-element:hover,
@@ -357,6 +407,9 @@ ul {
   border-radius: 50%;
   fill: #fff;
   background-color: rgba(255, 255, 255, 0.1);
+  transition-property: background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-socials-element:hover {
@@ -392,6 +445,9 @@ ul {
   letter-spacing: 0.03em;
   color: var(--white);
   text-decoration: none;
+  transition-property: color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .link-map:hover,
 .link-map:focus,
@@ -401,8 +457,60 @@ ul {
 }
 /* END FOOTER */
 
+/* BACKDROP */
+
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: var(--white);
+  width: 528px;
+  height: 581px;
+  transform: translate(-50%, -50%);
+  transition-property: transform;
+  transition-duration: 1500ms;
+  transition-timing-function: ease;
+}
+
+.close-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: var(--white);
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.1);
+}
+
+/* END BACKDROP */
+
 /* Portfolio styles */
 /* PORTFOLIO NAVIGATION */
+.portfolio-nav.section {
+  padding-bottom: 0;
+}
 .portfolio-nav.container {
   display: flex;
   flex-direction: column;
@@ -436,6 +544,10 @@ ul {
   border-radius: 4px;
 
   padding: 6px 22px;
+
+  transition-property: background-color, color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-button:hover,
 .portfolio-button:focus {
@@ -461,17 +573,64 @@ ul {
   flex-wrap: wrap;
   gap: 30px;
 }
-.portfolio-job-list-item {
-  border: 1px solid #eeeeee;
-  box-sizing: border-box;
+
+.portfolio-job-list figure {
+  transition-property: box-shadow, cursor;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
-.portfolio-job-list-item:hover {
+
+.portfolio-job-list figure:hover {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
 }
+
+.overlay-box {
+  position: relative;
+  overflow: hidden;
+}
+.overlay-box img {
+  vertical-align: middle;
+}
+.portfolio-job-list-item {
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  background-color: rgba(33, 150, 243, 0.9);
+  transform: translateY(100%);
+  transition-property: transform;
+  transition-duration: 250ms;
+  transition-timing-function: ease;
+}
+
+.portfolio-job-list-item:hover .overlay {
+  transform: translateY(0);
+}
+
+.overlay-description {
+  font-family: "Roboto";
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.6;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.image-description {
+  border: 1px solid #eeeeee;
+  border-top: 0px;
+  box-sizing: border-box;
+}
+
 .portfolio-job-header,
-.portfolio-job-list-element {
+.portfolio-job-list-item {
   box-sizing: border-box;
   background: var(--white);
 }
